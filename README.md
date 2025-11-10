@@ -31,19 +31,56 @@ This repository contains a simplified, local-first full-stack resume skill-match
 The original project included heavy external AI integrations (OpenAI, transformers, spaCy, etc.).
 This fork/refactor removes external cloud dependencies and provides a lightweight, runnable local version:
 
-- Backend: Flask + SQLite (local persistence)
-- Frontend: static HTML/JS using Chart.js for charts
-- Real-time updates: Server-Sent Events (SSE) to notify connected clients of new uploads
-- Resume processing: local text extraction (PDF/TXT) and deterministic skill extraction (no ML models required)
+Technology Stack
+Backend: Python Flask or FastAPI
+Frontend: React.js or plain JavaScript/HTML/CSS (responsive, interactive UI)
+Database: SQLite/PostgreSQL for persistent storage of resumes, jobs, skillsets
+NLP/ML:
+spaCy for Named Entity Recognition and basic parsing
+Simple TF-IDF + cosine similarity for skill matching
+Lightweight transformer embeddings (optional, from Hugging Face)
+Fuzzy matching and synonyms using Python libraries
+Optional Online Integrations:
+Open public APIs for course recommendations (e.g., Coursera catalog)
+Public datasets for skill taxonomies without paid subscriptions
+Core Features
+Resume and Job Description Upload
+File formats: PDF, DOCX, TXT
+Text extraction locally using PyPDF2, python-docx, or native I/O
+Skill Extraction
+Rule-based and ML-powered extraction of technical and soft skills
+Customized skill dictionary with synonyms and fuzzy matching
+Skill Matching & Scoring
+Calculate match percentages between candidate skills and job requirements
+Use simple semantic similarity with TF-IDF vectors
+Weighted scoring of hard skills (70%) and soft skills (30%)
+Personalized Recommendations
+Suggest skills to learn based on missing job requirements
+Recommend relevant online courses/videos (using open catalog APIs optionally)
+Offer resume writing tips based on structure and content analysis
+Career Roadmap Generation
+Basic personalized roadmaps based on matched skills and experience level
+Suggest milestones from beginner to advanced skill acquisition
+Interactive Frontend Visualizations
+Skill gap charts, personalized dashboards
+Responsive UI supporting file upload, analysis, and detailed results
+User and Session Management
+Basic authentication/session management (Flask-Login or JWT)
+Resume and job history persistence for users
+Optional Advanced Features (Minimal Online Dependency)
+Sync with GitHub public profiles for live skill extraction from repos
+Use public course catalog APIs for dynamic learning recommendations
+Generate interview question banks using pre-trained NLP models (no external APIs)
 
-This README explains how to run the project locally on Windows (PowerShell or CMD) and how to run the included smoke test.
+Development & Deployment
+Local-first: The core matching logic and NLP run locally with minimal reliance on cloud
+Dockerized backend and frontend for easy deployment
+CICD with GitHub Actions for automated testing and linting
+Deployment on cloud platforms (Heroku, AWS) optionally for broader access
 
-
-
-- Removed external AI/cloud API calls and heavyweight ML dependencies.
-- Replaced NLP/ML steps with deterministic list- and rule-based extraction to keep the demo stable and reproducible.
-- Added a small SQLite database (data.db) to persist uploaded resumes and analysis results.
-- Implemented SSE (/stream) so the frontend receives real-time notifications when a resume is uploaded.
+Summary
+This project uniquely balances offline-capable AI-powered resume matching with thoughtful, minimal use of free online resources, eschewing paid APIs.
+It leverages open-source tools in Python and standard web tech stacks, making it accessible for students, startups, or privacy-conscious applications.
 - Added convenience scripts: `run-backend.ps1` and `run-backend.cmd` for Windows users.
 
 ## Prerequisites
