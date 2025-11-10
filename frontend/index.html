@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skill Matcher</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/charts.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/quick-actions.css">
+    <link rel="stylesheet" href="css/tabs.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+</head>
+<body data-color-scheme="light">
+    <div id="loading-overlay-placeholder"></div>
+    <div id="notification-container-placeholder"></div>
+    <div id="voice-placeholder"></div>
+    <div id="accessibility-placeholder"></div>
+        <!-- Accessibility Toolbar (top right) -->
+        <div class="accessibility-toolbar" style="position: absolute; top: 16px; right: 24px; display: flex; gap: 8px; z-index: 10;">
+                <button class="btn btn--sm" id="toggle-theme" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span></button>
+                <button class="btn btn--sm" id="increase-font" aria-label="Increase font size">A+</button>
+                <button class="btn btn--sm" id="decrease-font" aria-label="Decrease font size">A-</button>
+                <button class="btn btn--sm" id="voice-toggle" aria-label="Toggle voice input"><i class="fas fa-microphone"></i></button>
+        </div>
+
+            <!-- Navigation Bar (left-aligned, horizontal) -->
+            <nav class="navbar" role="navigation" aria-label="Main navigation" style="width: 100%; background: #fff; border-bottom: 1px solid #e5e7eb;">
+                <div class="navbar__content" style="display: flex; flex-direction: column; align-items: flex-start; padding: 12px 32px; gap: 8px;">
+                    <div class="navbar__brand" style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 2rem; color: #1FB8CD;"><i class="fas fa-brain"></i></span>
+                        <span style="font-size: 1.2rem; font-weight: 600; color: #1FB8CD;">AI Skill Matcher Pro</span>
+                    </div>
+                    <div class="navbar__links" style="display: flex; align-items: center; gap: 12px; flex-wrap: nowrap;">
+                        <button class="nav-link active" data-section="landing"><i class="fas fa-home"></i> Home</button>
+                        <button class="nav-link" data-section="upload"><i class="fas fa-upload"></i> Upload</button>
+                        <button class="nav-link" data-section="dashboard"><i class="fas fa-chart-dashboard"></i> Dashboard</button>
+                        <button class="nav-link" data-section="roadmap"><i class="fas fa-route"></i> Roadmap</button>
+                        <button class="nav-link" data-section="interview"><i class="fas fa-comments"></i> Interview Prep</button>
+                        <button class="nav-link" data-section="collaboration"><i class="fas fa-users"></i> Collaborate</button>
+                        <button class="nav-link" data-section="profile"><i class="fas fa-user-cog"></i> Profile</button>
+                    </div>
+                </div>
+            </nav>
+    <div id="app" class="main-content">
+        <div id="app" class="main-content">
+            <!-- Hero Section (Landing) -->
+                    <section id="landing" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero__content">
+                        <h1 class="hero__title">AI-Powered Career Intelligence Platform</h1>
+                        <p class="hero__subtitle">Advanced skill matching, career roadmaps, and real-time market insights powered by cutting-edge AI technology</p>
+                        <div class="hero__actions">
+                            <button class="btn btn--primary btn--lg" data-section="upload">
+                                <i class="fas fa-rocket"></i> Start Your Journey
+                            </button>
+                            <button class="btn btn--outline btn--lg" id="learn-more">
+                                <i class="fas fa-play"></i> Watch Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Market Trends -->
+                    <div class="market-trends">
+                        <h3><i class="fas fa-trending-up"></i> Live Market Trends</h3>
+                        <div class="trends-grid">
+                            <div class="trend-card trending">
+                                <div class="trend-icon"></div>
+                                <div class="trend-info">
+                                    <h4>Python</h4>
+                                    <p class="trend-salary">$95,000 avg</p>
+                                    <div class="trend-change positive">+15%</div>
+                                </div>
+                            </div>
+                            <div class="trend-card trending">
+                                <div class="trend-icon"></div>
+                                <div class="trend-info">
+                                    <h4>React</h4>
+                                    <p class="trend-salary">$85,000 avg</p>
+                                    <div class="trend-change positive">+12%</div>
+                                </div>
+                            </div>
+                            <div class="trend-card emerging">
+                                <div class="trend-icon"></div>
+                                <div class="trend-info">
+                                    <h4>Generative AI</h4>
+                                    <p class="trend-salary">$120,000 avg</p>
+                                    <div class="trend-change positive">+45%</div>
+                                </div>
+                            </div>
+                            <div class="trend-card">
+                                <div class="trend-icon"></div>
+                                <div class="trend-info">
+                                    <h4>AWS</h4>
+                                    <p class="trend-salary">$110,000 avg</p>
+                                    <div class="trend-change positive">+8%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature Showcase -->
+                    <div class="hero__features">
+                        <div class="feature-card">
+                            <div class="feature-icon"></div>
+                            <h3>AI-Powered Matching</h3>
+                            <p>95% accuracy with deep learning algorithms analyzing technical and soft skills</p>
+                            <div class="feature-stats">
+                                <span class="stat">500K+ matches</span>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"></div>
+                            <h3>Career Intelligence</h3>
+                            <p>Real-time market insights, salary trends, and personalized career roadmaps</p>
+                            <div class="feature-stats">
+                                <span class="stat">Live data</span>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"></div>
+                            <h3>Voice & Accessibility</h3>
+                            <p>Speech-to-text input, screen reader support, and inclusive design</p>
+                            <div class="feature-stats">
+                                <span class="stat">WCAG 2.1 AA</span>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"></div>
+                            <h3>Smart Collaboration</h3>
+                            <p>AI-enhanced recruiter-candidate matching with intelligent feedback</p>
+                            <div class="feature-stats">
+                                <span class="stat">85% success rate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="upload" class="section" style="display:none;">Upload Section</div>
+        <div id="dashboard" class="section" style="display:none;">Dashboard Section</div>
+        <div id="roadmap" class="section" style="display:none;">Roadmap Section</div>
+        <div id="interview" class="section" style="display:none;">Interview Prep Section</div>
+        <div id="collaboration" class="section" style="display:none;">Collaborate Section</div>
+        <div id="profile" class="section" style="display:none;">Profile Section</div>
+    </div>
+    <!-- JavaScript Files -->
+    <script src="js/loader.js"></script>
+</body>
+</html>
