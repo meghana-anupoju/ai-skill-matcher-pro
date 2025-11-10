@@ -33,31 +33,41 @@ This fork/refactor removes external cloud dependencies and provides a lightweigh
 
 Technology Stack
 Backend: Python Flask or FastAPI
+
 Frontend: React.js or plain JavaScript/HTML/CSS (responsive, interactive UI)
+
 Database: SQLite/PostgreSQL for persistent storage of resumes, jobs, skillsets
+
 NLP/ML:
 spaCy for Named Entity Recognition and basic parsing
 Simple TF-IDF + cosine similarity for skill matching
 Lightweight transformer embeddings (optional, from Hugging Face)
 Fuzzy matching and synonyms using Python libraries
+
 Optional Online Integrations:
 Open public APIs for course recommendations (e.g., Coursera catalog)
 Public datasets for skill taxonomies without paid subscriptions
+
 Core Features
 Resume and Job Description Upload
+
 File formats: PDF, DOCX, TXT
 Text extraction locally using PyPDF2, python-docx, or native I/O
+
 Skill Extraction
 Rule-based and ML-powered extraction of technical and soft skills
 Customized skill dictionary with synonyms and fuzzy matching
+
 Skill Matching & Scoring
 Calculate match percentages between candidate skills and job requirements
 Use simple semantic similarity with TF-IDF vectors
 Weighted scoring of hard skills (70%) and soft skills (30%)
+
 Personalized Recommendations
 Suggest skills to learn based on missing job requirements
 Recommend relevant online courses/videos (using open catalog APIs optionally)
 Offer resume writing tips based on structure and content analysis
+
 Career Roadmap Generation
 Basic personalized roadmaps based on matched skills and experience level
 Suggest milestones from beginner to advanced skill acquisition
@@ -65,6 +75,7 @@ Interactive Frontend Visualizations
 Skill gap charts, personalized dashboards
 Responsive UI supporting file upload, analysis, and detailed results
 User and Session Management
+
 Basic authentication/session management (Flask-Login or JWT)
 Resume and job history persistence for users
 Optional Advanced Features (Minimal Online Dependency)
